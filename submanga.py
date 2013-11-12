@@ -27,6 +27,7 @@ class SubmangaPage(object):
         html_page = pq(self.base_url+'/completa')
         html_chapters = html_page('table.caps tr td.s a')
         url_chapters = [c.values()[-1] for c in html_chapters]
+        url_chapters = [c for c in url_chapters if c.startswith('http://')]
         self.make_directories_and_download(url_chapters)
 
     def make_directories_and_download(self, url_chapters):
