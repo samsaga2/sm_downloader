@@ -38,14 +38,12 @@ class SubmangaPage(object):
             chap_dir = self.output_dir + '/' + chap_name
             if not os.path.exists(chap_dir):
                 os.makedirs(chap_dir)
-            print 'Chapter "%s" [%d/%d]' % (chap_name, index+1, len(url_chapters))
-            self.process_page_and_download(chap_id, chap_dir)
-            self.compress_chapter(chap_name)
+            if not os.path.exists(chap_dir + '/.skip'):
+                print 'Chapter "%s" [%d/%d]' % (chap_name, index+1, len(url_chapters))
+                self.process_page_and_download(chap_id, chap_dir)
+                self.compress_chapter(chap_name)
 
     def process_page_and_download(self, page_id, page_dir):
-        if os.path.exists(page_dir + '/.skip'):
-            return
-
         page_url = self.host + '/c/' + page_id
         page_html = pq(page_url)
 
