@@ -1,3 +1,4 @@
-lxml==2.3.3
-pyquery==1.1.1
-wsgiref==0.1.2
+lxml
+pyquery
+wsgiref
+cssselect

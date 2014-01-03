@@ -17,11 +17,11 @@ Instalacion:
 * Crear un entorno virtual
 `virtualenv --distribute --no-site-packages env`
 * Instalar las dependencias
-`pip install -r REQUERIMENTS.txt`
+`pip install -r REQUERIMENTS`
 
 Uso
 ---
-Para correr el script solo necesitas hacer un `# pyhorn start.py` o simplemente 
+Para correr el script solo necesitas hacer un `# pythonstart.py` o simplemente 
 `./start.py` el script te preguntará por la dirección de la web del capítulo, la
 puedes encontrar entrando a la pagina del manga, algunos ejemplos son:
 
