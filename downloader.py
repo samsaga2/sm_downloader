@@ -20,15 +20,18 @@ class Downloader():
         if os.path.exists(filename):
             return
 
-        file_photo = open(filename, 'w')
-        try:
-            resp = urllib2.urlopen(url, timeout=60)
-            file_photo.write(resp.read())
-            file_photo.close()
-        except:
-            file_photo.close()
-            os.remove(filename)
-            print 'error downloading', url
+	for i in range(5):
+            file_photo = open(filename, 'w')
+            try:
+                resp = urllib2.urlopen(url, timeout=60)
+                file_photo.write(resp.read())
+                file_photo.close()
+		return
+            except:
+		pass
+        file_photo.close()
+        os.remove(filename)
+        print 'error downloading', url
 
     def wait(self):
         for t in self.threads:
